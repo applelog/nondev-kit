@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="200" viewBox="0 0 920 200" font-family="-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif">
+<rect width="920" height="200" rx="16" fill="#ffffff" stroke="#e3e3e8"/>
+<text x="24" y="38" font-size="17" font-weight="700" fill="#1d1d1f">새로 만들 때: "앱 만들어줘"라고만 해도 됩니다</text>
+<circle cx="710" cy="33" r="5" fill="#0071e3"/><text x="720" y="38" font-size="13" fill="#6e6e73">내가 하는 일</text>
+<circle cx="810" cy="33" r="5" fill="#1a7f37"/><text x="820" y="38" font-size="13" fill="#6e6e73">Claude가 하는 일</text>
+<rect x="24" y="64" width="152" height="104" rx="14" fill="#e8f1fd"/>
+<text x="100" y="90" font-size="12" font-weight="700" fill="#0071e3" text-anchor="middle">나</text>
+<text x="100" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">말하기</text>
+<text x="100" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">"앱 만들어줘"</text>
+<path d="M184 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M204 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="212" y="64" width="152" height="104" rx="14" fill="#e8f6ec"/>
+<text x="288" y="90" font-size="12" font-weight="700" fill="#1a7f37" text-anchor="middle">Claude</text>
+<text x="288" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">질문하기</text>
+<text x="288" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">고르는 질문</text>
+<text x="288" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">최대 8개</text>
+<path d="M372 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M392 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="400" y="64" width="152" height="104" rx="14" fill="#e8f1fd"/>
+<text x="476" y="90" font-size="12" font-weight="700" fill="#0071e3" text-anchor="middle">나</text>
+<text x="476" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">계획 확인</text>
+<text x="476" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">요약을 보고</text>
+<text x="476" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">"좋아"</text>
+<path d="M560 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M580 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="588" y="64" width="152" height="104" rx="14" fill="#e8f6ec"/>
+<text x="664" y="90" font-size="12" font-weight="700" fill="#1a7f37" text-anchor="middle">Claude</text>
+<text x="664" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">만들기</text>
+<text x="664" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">쉬운 말로</text>
+<text x="664" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">설명하며</text>
+<path d="M748 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M768 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="776" y="64" width="152" height="104" rx="14" fill="#e8f6ec"/>
+<text x="852" y="90" font-size="12" font-weight="700" fill="#1a7f37" text-anchor="middle">Claude</text>
+<text x="852" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">점검·기록</text>
+<text x="852" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">보안 점검</text>
+<text x="852" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">개발일지</text>
+</svg>
