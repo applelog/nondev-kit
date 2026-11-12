@@ -1,4 +1,4 @@
-# vibe-starter
+# nondev-kit
 
 [English](README.md) | **한국어**
 
@@ -27,14 +27,14 @@ AI로 웹사이트나 앱을 만들지만 개발자는 아닌 사람을 위한 C
 [Claude Code](https://claude.com/claude-code)와 Node.js 18 이상이 필요합니다.
 
 ```
-/plugin marketplace add applelog/vibe-starter
-/plugin install vibe-starter@vibe-starter
+/plugin marketplace add applelog/nondev-kit
+/plugin install nondev-kit@nondev-kit
 ```
 
 설치하지 않고 내려받은 폴더로 바로 써보려면:
 
 ```
-claude --plugin-dir /path/to/vibe-starter
+claude --plugin-dir /path/to/nondev-kit
 ```
 
 그다음 만들고 싶은 것을 말하면 됩니다.
@@ -97,7 +97,7 @@ Claude는 내 말에 무조건 동의하지 않도록 지시받습니다. 내가
 
 ## 끄는 법
 
-`/plugin`에서 `vibe-starter`를 끄거나 삭제합니다. `DEVLOG.md` 파일은 그대로 남습니다.
+`/plugin`에서 `nondev-kit`를 끄거나 삭제합니다. `DEVLOG.md` 파일은 그대로 남습니다.
 
 ## 테스트
 
@@ -122,4 +122,4 @@ node skills/security-check/scan.test.mjs
 
 [MIT](LICENSE). 저작권 표시와 라이선스 문구를 유지하면 상업적 이용을 포함해 자유롭게 사용, 복사, 수정, 배포할 수 있습니다. 어떤 보증도 없습니다.
 
-vibe-starter는 독립 프로젝트입니다. Anthropic, Figma, Canva가 만들거나 보증한 것이 아닙니다.
+nondev-kit는 독립 프로젝트입니다. Anthropic, Figma, Canva가 만들거나 보증한 것이 아닙니다.

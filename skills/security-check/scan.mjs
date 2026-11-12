@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// vibe-starter security scan. Fixed pattern rules only, no AI.
+// nondev-kit security scan. Fixed pattern rules only, no AI.
 // Usage: node scan.mjs [project-folder]
 // Prints JSON: { stack, findings, notChecked, needsReview }. Never prints a secret value.
 // Pattern rules are written for JavaScript/TypeScript projects, with partial Python support.

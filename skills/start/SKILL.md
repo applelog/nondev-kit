@@ -91,6 +91,6 @@ Steps:       plan > design > build > test > release, with one line each
 "Done when" is the test for the whole version: write it so a non-developer can check each line without reading code. Later, when something breaks, it is what "working" means.
 
 After the user confirms:
-1. Create DEVLOG.md with the `vibe-starter:journal` format. Put the decisions, the "Done when" list, the monthly budget, and the personal-data level in Pinned. Put "Later" features under Open issues > Later.
+1. Create DEVLOG.md with the `nondev-kit:journal` format. Put the decisions, the "Done when" list, the monthly budget, and the personal-data level in Pinned. Put "Later" features under Open issues > Later.
 2. Start a git repository if there is none.
 3. Begin the first step.

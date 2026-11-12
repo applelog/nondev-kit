@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// vibe-starter session start hook. Whatever this prints is added to Claude's context.
+// nondev-kit session start hook. Whatever this prints is added to Claude's context.
 // It prints the working rules (router.md) and the top of the project journal (DEVLOG.md).
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -24,6 +24,6 @@ try {
     text += '\n\nThis project has no DEVLOG.md yet: treat it as a new project.';
   }
 } catch (e) {
-  text += `\n\n[vibe-starter could not load its context: ${e.message}]`;
+  text += `\n\n[nondev-kit could not load its context: ${e.message}]`;
 }
 console.log(text);

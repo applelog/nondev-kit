@@ -1,4 +1,4 @@
-# vibe-starter
+# nondev-kit
 
 **English** | [한국어](README.ko.md)
 
@@ -18,7 +18,7 @@ When you build with AI and you are not a developer, three things tend to go wron
 2. **You say "it's broken, fix it" and the AI changes code based on a guess.** The fix breaks something else.
 3. **Something that cannot be undone happens without you noticing.** A secret key is saved to a public place, or your work is overwritten.
 
-vibe-starter makes Claude ask first in cases 1 and 2, and puts a fixed check in front of case 3.
+nondev-kit makes Claude ask first in cases 1 and 2, and puts a fixed check in front of case 3.
 
 ## What it looks like
 
@@ -53,8 +53,8 @@ You need [Claude Code](https://claude.com/claude-code) and [Node.js](https://nod
 Inside Claude Code, run these two commands once:
 
 ```
-/plugin marketplace add applelog/vibe-starter
-/plugin install vibe-starter@vibe-starter
+/plugin marketplace add applelog/nondev-kit
+/plugin install nondev-kit@nondev-kit
 ```
 
 Then open a new, empty folder, start Claude Code, and say what you want to make.
@@ -62,7 +62,7 @@ Then open a new, empty folder, start Claude Code, and say what you want to make.
 To try it from a downloaded copy without installing:
 
 ```
-claude --plugin-dir /path/to/vibe-starter
+claude --plugin-dir /path/to/nondev-kit
 ```
 
 ## What you get
@@ -148,7 +148,7 @@ The safety checks are one layer. Claude Code has its own permission rules and a 
 
 ## Turning it off
 
-Use `/plugin` and disable or uninstall `vibe-starter`. Your `DEVLOG.md` files stay where they are.
+Use `/plugin` and disable or uninstall `nondev-kit`. Your `DEVLOG.md` files stay where they are.
 
 ## What is inside
 
@@ -188,4 +188,4 @@ For a change to a safety rule, please add a test case to `hooks/test.mjs`.
 
 [MIT](LICENSE). You may use, copy, change, and share this plugin, including in commercial work, as long as you keep the copyright and license notice. It comes with no warranty.
 
-vibe-starter is an independent project. It is not made or endorsed by Anthropic, Figma, or Canva.
+nondev-kit is an independent project. It is not made or endorsed by Anthropic, Figma, or Canva.

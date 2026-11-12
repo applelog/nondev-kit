@@ -47,7 +47,7 @@ check('ok: removing a tracked .env', (() => { const d = repo({ '.env': 'A=1\n' }
 
 // Rule 2: packages that do not exist (uses the network)
 const plain = repo();
-const ghost = 'vibe-starter-no-such-pkg-' + Math.random().toString(36).slice(2, 10);
+const ghost = 'nondev-kit-no-such-pkg-' + Math.random().toString(36).slice(2, 10);
 check('package: invented name', guard(`npm install ${ghost}`, plain), 'deny');
 check('package: invented name among real ones', guard(`pnpm add react ${ghost}@1.0.0 -D`, plain), 'deny');
 check('package: registry unreachable', guard('npm install react', plain, { VIBE_REGISTRY: 'http://127.0.0.1:9' }), 'ask');
@@ -95,7 +95,7 @@ check(`speed: ${ms}ms under 1000ms`, ms < 1000, true);
 // session-start.mjs
 function start(cwd) { return spawnSync('node', [join(here, 'session-start.mjs')], { input: JSON.stringify({ cwd, source: 'startup' }), encoding: 'utf8' }).stdout; }
 const fresh = start(plain);
-check('start: router injected', fresh.includes('vibe-starter: how to work'), true);
+check('start: router injected', fresh.includes('nondev-kit: how to work'), true);
 check('start: new project noted', fresh.includes('no DEVLOG.md'), true);
 const withLog = repo({ 'DEVLOG.md': '# Journal\n\n## Now\nStage: build\n\n## Pinned\n- KEEP-THIS-LINE\n\n## Open issues\n\n## Log\n- OLD-HISTORY-LINE\n' });
 const resumed = start(withLog);

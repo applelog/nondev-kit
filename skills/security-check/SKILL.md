@@ -83,7 +83,7 @@ Rules for the report:
 
 ## Step 6: Record
 
-Add every unfixed problem to DEVLOG.md under Open issues (danger goes to "Fix now"). Add a Log line with the date and the counts. See `vibe-starter:journal`.
+Add every unfixed problem to DEVLOG.md under Open issues (danger goes to "Fix now"). Add a Log line with the date and the counts. See `nondev-kit:journal`.
 
 ## When to tell the user to get more help
 

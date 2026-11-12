@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// vibe-starter safety hook. Runs before every shell command Claude wants to run.
+// nondev-kit safety hook. Runs before every shell command Claude wants to run.
 // Fixed rules only, no AI. Prints "deny" (blocked) or "ask" (you must confirm). Silence = allowed.
 // The only network call: asking the npm registry whether a package name exists.
 import { execSync } from 'node:child_process';
@@ -63,7 +63,7 @@ function irreversible(seg, cwd, moved) {
 }
 
 function out(decision, reason) {
-  console.log(JSON.stringify({ hookSpecificOutput: { hookEventName: 'PreToolUse', permissionDecision: decision, permissionDecisionReason: `[vibe-starter] ${reason}` } }));
+  console.log(JSON.stringify({ hookSpecificOutput: { hookEventName: 'PreToolUse', permissionDecision: decision, permissionDecisionReason: `[nondev-kit] ${reason}` } }));
   process.exit(0);
 }
 
