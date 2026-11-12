@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="200" viewBox="0 0 920 200" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif">
+<rect width="920" height="200" rx="16" fill="#ffffff" stroke="#e3e3e8"/>
+<text x="24" y="38" font-size="17" font-weight="700" fill="#1d1d1f">When something breaks: "it's broken, fix it" is enough</text>
+<circle cx="665" cy="33" r="5" fill="#0071e3"/><text x="675" y="38" font-size="13" fill="#6e6e73">What you do</text>
+<circle cx="780" cy="33" r="5" fill="#1a7f37"/><text x="790" y="38" font-size="13" fill="#6e6e73">What Claude does</text>
+<rect x="24" y="64" width="152" height="104" rx="14" fill="#e8f6ec"/>
+<text x="100" y="90" font-size="12" font-weight="700" fill="#1a7f37" text-anchor="middle">Claude</text>
+<text x="100" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">Looks first</text>
+<text x="100" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">Recent changes,</text>
+<text x="100" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">error logs</text>
+<path d="M184 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M204 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="212" y="64" width="152" height="104" rx="14" fill="#e8f1fd"/>
+<text x="288" y="90" font-size="12" font-weight="700" fill="#0071e3" text-anchor="middle">You</text>
+<text x="288" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">Answer</text>
+<text x="288" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">Up to 4 questions,</text>
+<text x="288" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">multiple choice</text>
+<path d="M372 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M392 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="400" y="64" width="152" height="104" rx="14" fill="#e8f6ec"/>
+<text x="476" y="90" font-size="12" font-weight="700" fill="#1a7f37" text-anchor="middle">Claude</text>
+<text x="476" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">Reproduces</text>
+<text x="476" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">Makes the problem</text>
+<text x="476" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">happen itself</text>
+<path d="M560 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M580 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="588" y="64" width="152" height="104" rx="14" fill="#e8f6ec"/>
+<text x="664" y="90" font-size="12" font-weight="700" fill="#1a7f37" text-anchor="middle">Claude</text>
+<text x="664" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">Fixes</text>
+<text x="664" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">One cause,</text>
+<text x="664" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">one fix</text>
+<path d="M748 116 h20" stroke="#a1a1a6" stroke-width="2"/><path d="M768 111 l6 5 l-6 5" fill="none" stroke="#a1a1a6" stroke-width="2"/>
+<rect x="776" y="64" width="152" height="104" rx="14" fill="#e8f1fd"/>
+<text x="852" y="90" font-size="12" font-weight="700" fill="#0071e3" text-anchor="middle">You</text>
+<text x="852" y="118" font-size="16" font-weight="700" fill="#1d1d1f" text-anchor="middle">Confirm</text>
+<text x="852" y="140" font-size="12.5" fill="#6e6e73" text-anchor="middle">Try it the way</text>
+<text x="852" y="157" font-size="12.5" fill="#6e6e73" text-anchor="middle">Claude shows you</text>
+</svg>

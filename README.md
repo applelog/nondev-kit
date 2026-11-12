@@ -22,6 +22,12 @@ nondev-kit makes Claude ask first in cases 1 and 2, and puts a fixed check in fr
 
 ## What it looks like
 
+![Starting something new: you say what you want, Claude asks a few questions, you approve a short plan, Claude builds it, then runs a security check and updates the project journal](docs/flow-start.svg)
+
+![When something breaks: Claude looks at recent changes and errors first, you answer up to 4 questions, Claude reproduces the problem, fixes one cause, and you confirm](docs/flow-fix.svg)
+
+A typical start:
+
 ```
 You:     Make me a budget app
 
