@@ -79,13 +79,18 @@ Show this and ask one question: "Shall I start with this?"
 What:        <one sentence>
 For whom:    <who>
 Version 1:   <the one thing it must do>
+Screens:     <each screen and what the user does on it, one line each>
+Done when:   <2-4 things the user can try and see for themselves, e.g. "I add a booking and it is still there after I reload">
 Later:       <features moved out of version 1>
+Not doing:   <what version 1 leaves out on purpose>
 I decided:   <form, tools with a one-line reason each, estimated monthly cost>
 I assumed:   <anything you guessed without asking>
 Steps:       plan > design > build > test > release, with one line each
 ```
 
+"Done when" is the test for the whole version: write it so a non-developer can check each line without reading code. Later, when something breaks, it is what "working" means.
+
 After the user confirms:
-1. Create DEVLOG.md with the `vibe-starter:journal` format. Put the decisions, the monthly budget, and the personal-data level in Pinned. Put "Later" features under Open issues > Later.
+1. Create DEVLOG.md with the `vibe-starter:journal` format. Put the decisions, the "Done when" list, the monthly budget, and the personal-data level in Pinned. Put "Later" features under Open issues > Later.
 2. Start a git repository if there is none.
 3. Begin the first step.
