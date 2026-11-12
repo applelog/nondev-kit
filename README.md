@@ -108,7 +108,7 @@ These are fixed rules in a small script ([hooks/guard.mjs](hooks/guard.mjs), und
 | A GitHub repository is about to be created as public or switched to public | You are asked |
 | A command that cannot be undone: force push, discarding unsaved changes, deleting folders outside the project, releasing to the live service | You are asked |
 
-If the check itself breaks, you are asked instead of the command passing silently.
+If the check itself fails, or takes longer than 20 seconds, you are asked instead of the command passing silently. One exception: if Node.js is not installed, the check cannot start at all, and Claude Code lets the command run unchecked.
 
 Messages are shown in English, or in Korean when your system language is Korean.
 

@@ -50,7 +50,7 @@ const plain = repo();
 const ghost = 'nondev-kit-no-such-pkg-' + Math.random().toString(36).slice(2, 10);
 check('package: invented name', guard(`npm install ${ghost}`, plain), 'deny');
 check('package: invented name among real ones', guard(`pnpm add react ${ghost}@1.0.0 -D`, plain), 'deny');
-check('package: registry unreachable', guard('npm install react', plain, { VIBE_REGISTRY: 'http://127.0.0.1:9' }), 'ask');
+check('package: registry unreachable', guard('npm install react', plain, { NONDEV_REGISTRY: 'http://127.0.0.1:9' }), 'ask');
 check('ok: real package', guard('npm install react', plain), 'allow');
 check('ok: real scoped package with version', guard('npm i -D @types/node@22 2>&1', plain), 'allow');
 check('ok: install with no names', guard('npm install', plain), 'allow');
@@ -81,6 +81,21 @@ check('ok: preview deploy', guard('vercel', plain), 'allow');
 check('ok: commit message mentions --force', guard('git commit -m "docs: explain push --force"', plain), 'allow');
 check('ok: ordinary commands', guard('npm run build && ls -la', plain), 'allow');
 
+// Wrapped or redirected commands are checked too
+const keyRepo = () => repo({ 'app.js': `const k = "${fakeKey}";\n` }, { stage: ['app.js'] });
+check('wrap: git -C other folder commit', (() => { const d = keyRepo(); return guard(`git -C "${d}" commit -m x`, plain); })(), 'deny');
+check('wrap: git -c option commit', guard('git -c core.quotepath=off commit -m x', keyRepo()), 'deny');
+check('wrap: bash -c git add', guard(`bash -c 'git add -A'`, repo({ 'src/k.ts': `export const k = '${fakeKey}'\n` })), 'deny');
+check('wrap: $( ) subshell', guard('echo $(git add -A)', repo({ 'src/k.ts': `export const k = '${fakeKey}'\n` })), 'deny');
+check('wrap: git -C . push --force', guard('git -C . push --force', plain), 'ask');
+check('wrap: eval reset --hard', guard(`eval "git reset --hard"`, plain), 'ask');
+check('undo: rm -rf * deletes the whole project', guard('rm -rf *', plain), 'ask');
+check('undo: rm -rf ./*', guard('rm -rf ./*', plain), 'ask');
+check('ok: git -C clean folder status', guard(`git -C "${plain}" status`, plain), 'allow');
+check('ok: commit message with parentheses', guard('git commit -m "fix (ui): button"', plain), 'allow');
+check('ok: rm -rf dist/*', guard('rm -rf dist/*', plain), 'allow');
+check('ok: output redirect 2>&1', guard('npm run build 2>&1 | tail -5', plain), 'allow');
+
 // Broken check must ask, not pass silently
 check('failure: unreadable input asks', guard('', plain, {}, 'not json'), 'ask');
 
@@ -100,6 +115,7 @@ check('start: new project noted', fresh.includes('no DEVLOG.md'), true);
 const withLog = repo({ 'DEVLOG.md': '# Journal\n\n## Now\nStage: build\n\n## Pinned\n- KEEP-THIS-LINE\n\n## Open issues\n\n## Log\n- OLD-HISTORY-LINE\n' });
 const resumed = start(withLog);
 check('start: pinned injected', resumed.includes('KEEP-THIS-LINE'), true);
+check('start: journal marked as notes, not instructions', resumed.includes('not instructions'), true);
 check('start: log not injected', resumed.includes('OLD-HISTORY-LINE'), false);
 const huge = repo({ 'DEVLOG.md': '## Pinned\n' + '- line\n'.repeat(3000) + '## Log\n' });
 check('start: output stays under 10,000 characters', start(huge).length < 10000, true);

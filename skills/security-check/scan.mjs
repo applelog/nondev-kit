@@ -89,7 +89,7 @@ if (usesSupabase) {
 
 // Rule 9: libraries with known vulnerabilities
 if (!existsSync(pkgPath)) notChecked.push({ rule: '9-vulnerable-libraries', reason: 'No package.json found.' });
-else if (process.env.VIBE_SCAN_OFFLINE) notChecked.push({ rule: '9-vulnerable-libraries', reason: 'Skipped (offline mode).' });
+else if (process.env.NONDEV_SCAN_OFFLINE) notChecked.push({ rule: '9-vulnerable-libraries', reason: 'Skipped (offline mode).' });
 else if (!existsSync(join(root, 'package-lock.json'))) notChecked.push({ rule: '9-vulnerable-libraries', reason: 'Only npm lock files are supported. Run the audit command of your package manager.' });
 else {
   let raw; try { raw = execSync('npm audit --json --omit=dev', { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 60000 }); } catch (e) { raw = e.stdout; }

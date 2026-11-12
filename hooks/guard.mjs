@@ -10,7 +10,7 @@ import { SECRET_FILE, SECRET_TEXT } from './patterns.mjs';
 
 const ko = (process.env.LC_ALL || process.env.LANG || '').startsWith('ko');
 const t = (en, kr) => (ko ? kr : en);
-const REGISTRY = process.env.VIBE_REGISTRY || 'https://registry.npmjs.org';
+const REGISTRY = process.env.NONDEV_REGISTRY || 'https://registry.npmjs.org';
 const NPM_NAME = /^(@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/i;
 const DEPLOY = /^(vercel\b.*--prod\b|netlify\s+deploy\b.*--prod\b|firebase\s+deploy\b|wrangler\s+(pages\s+)?deploy\b|fly\s+deploy\b|supabase\s+db\s+(push|reset)\b|npm\s+publish\b)/;
 const lines = (s) => s.split('\n').filter(Boolean);
@@ -57,7 +57,7 @@ function irreversible(seg, cwd, moved) {
   if (DEPLOY.test(seg)) return ['ask', t('This changes the live service that real users see (or its database). Continue only if you are ready to release.', '이 명령은 실제 사용자가 보는 서비스(또는 그 데이터베이스)를 바꿉니다. 출시할 준비가 됐을 때만 계속하세요.')];
   const tok = seg.split(/\s+/).slice(1).map((x) => x.replace(/^["']|["']$/g, ''));
   if (/^rm\s/.test(seg) && tok.some((x) => /^-\w*[rR]|^--recursive/.test(x))) {
-    const outside = (x) => { if (moved || /[$`]/.test(x)) return true; const p = resolve(cwd, x.replace(/^~/, homedir())); return p === cwd || !p.startsWith(cwd + sep); };
+    const outside = (x) => { if (moved || /[$`]/.test(x) || /^(\.\/)?\.?\*$/.test(x)) return true; const p = resolve(cwd, x.replace(/^~/, homedir())); return p === cwd || !p.startsWith(cwd + sep); };
     if (tok.filter((x) => !x.startsWith('-')).some(outside)) return ['ask', t('This deletes a folder outside your project (or the whole project). Deleted files do not go to the trash.', '이 명령은 프로젝트 밖의 폴더(또는 프로젝트 전체)를 지웁니다. 지운 파일은 휴지통으로 가지 않습니다.')];
   }
 }
@@ -67,6 +67,9 @@ function out(decision, reason) {
   process.exit(0);
 }
 
+// Running out of time must not let the command through: Claude Code passes it if the hook times out (30s).
+setTimeout(() => out('ask', t('The safety check took too long, so this command was not checked. Read it carefully before allowing.', '안전 검사가 너무 오래 걸려서 이 명령은 검사되지 않았습니다. 허용하기 전에 직접 확인하세요.')), 20000).unref();
+
 try {
   const input = JSON.parse(readFileSync(0, 'utf8'));
   const cmd = input.tool_input?.command;
@@ -74,9 +77,13 @@ try {
   const cwd = input.cwd || process.cwd();
   const hits = [];
   let moved = false; // after "cd", relative paths no longer point inside the project
-  for (const raw of cmd.split(/&&|\|\||[;|\n]/)) {
-    const seg = raw.trim().replace(/^(\w+=\S+\s+)+/, '').replace(/^sudo\s+/, '').replace(/^(npx|bunx|pnpm\s+dlx|yarn\s+dlx)\s+(-y\s+|--yes\s+)?/, '');
-    hits.push(secrets(seg, cwd), await packages(seg), publicRepo(seg), irreversible(seg, cwd, moved));
+  // Commands wrapped in bash -c / sh -c / eval / $( ) / ( ) are unwrapped and checked too.
+  const flat = cmd.replace(/\b(bash|sh|zsh)\s+-\w*c\s+|\beval\s+/g, '\n');
+  for (const raw of flat.split(/&&|\|\||\$\(|[;|\n&()`]/)) {
+    let dir = cwd; // "git -C <folder>" runs git in another folder
+    const seg = raw.trim().replace(/^["']+/, '').replace(/^(\w+=\S+\s+)+/, '').replace(/^sudo\s+/, '').replace(/^(npx|bunx|pnpm\s+dlx|yarn\s+dlx)\s+(-y\s+|--yes\s+)?/, '')
+      .replace(/^git((\s+(-[Cc]\s+\S+|--[\w-]+(=\S+)?))+)(?=\s)/, (_, o) => { const m = o.match(/-C\s+(\S+)/); if (m) dir = resolve(cwd, m[1].replace(/^["']|["']$/g, '')); return 'git'; });
+    hits.push(secrets(seg, dir), await packages(seg), publicRepo(seg), irreversible(seg, cwd, moved));
     if (/^(cd|pushd)\s/.test(seg)) moved = true;
   }
   const found = hits.filter(Boolean);

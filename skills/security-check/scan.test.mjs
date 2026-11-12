@@ -22,7 +22,7 @@ function project(files, { git = true, commit = false, ignore } = {}) {
   return dir;
 }
 function scan(dir) {
-  const r = spawnSync('node', [join(here, 'scan.mjs'), dir], { encoding: 'utf8', env: { ...process.env, VIBE_SCAN_OFFLINE: '1' } });
+  const r = spawnSync('node', [join(here, 'scan.mjs'), dir], { encoding: 'utf8', env: { ...process.env, NONDEV_SCAN_OFFLINE: '1' } });
   return JSON.parse(r.stdout);
 }
 const rules = (dir) => scan(dir).findings.map((f) => f.rule);
@@ -94,7 +94,7 @@ clean('user value used only as a search word', { 'api/search.js': 'const q = sea
   if (r.needsReview.length >= 5) pass++; else { fail++; console.log('FAIL  needsReview should list the human-judgment rules'); }
 }
 { // the scan must never print the secret value itself
-  const out = spawnSync('node', [join(here, 'scan.mjs'), project({ 'a.js': `const k = "${fakeKey}";\n` })], { encoding: 'utf8', env: { ...process.env, VIBE_SCAN_OFFLINE: '1' } }).stdout;
+  const out = spawnSync('node', [join(here, 'scan.mjs'), project({ 'a.js': `const k = "${fakeKey}";\n` })], { encoding: 'utf8', env: { ...process.env, NONDEV_SCAN_OFFLINE: '1' } }).stdout;
   if (!out.includes(fakeKey)) pass++; else { fail++; console.log('FAIL  scan output contains the secret value'); }
 }
 
