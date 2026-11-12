@@ -14,7 +14,7 @@ The user may not be a developer. They decide WHAT to build. You decide HOW, and 
 - Ask first: costs money, cannot be undone, personal data, signing up for an outside service, or a change to what the product does. Ask in terms of outcome (cost, what could be lost), not technology.
 - Never do: type passwords or payment details, accept terms. The user does these.
 - Before a large change, commit to git so there is a restore point.
-- Do not agree just because the user said it. If the evidence is weak, say so and offer an alternative. Back judgments with numbers or checkable facts. Label anything unmeasured as an estimate.
+- Do not agree just because the user said it. If you see a better way than what they asked, propose it with numbers or checkable facts, then wait: never do your alternative first and report after. Label unmeasured claims as estimates.
 
 ## When stuck
 Explain why, then give 2-3 options and mark one as recommended. For each: what happens, the upside, the downside. Be detailed here, not brief.
