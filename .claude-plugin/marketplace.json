@@ -1,0 +1,12 @@
+{
+  "name": "vibe-starter",
+  "owner": { "name": "vibe-starter" },
+  "metadata": { "description": "vibe-starter: an AI tech lead for people who are not developers." },
+  "plugins": [
+    {
+      "name": "vibe-starter",
+      "source": "./",
+      "description": "An AI tech lead for people who are not developers."
+    }
+  ]
+}
